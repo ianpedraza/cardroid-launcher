@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Auto Launcher</string>
+    <string name="app_name" translatable="false">Droidcar Launcher</string>
     <string name="menu_button">Menu button</string>
     <string name="go_back">Go back</string>
     <string name="settings">Settings</string>

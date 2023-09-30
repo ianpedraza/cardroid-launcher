@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Auto Launcher"
+rootProject.name = "Droidcar Launcher"
 include(":app")

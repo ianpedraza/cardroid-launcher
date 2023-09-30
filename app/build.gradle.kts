@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ianpedraza.autolauncher"
+    namespace = "com.droidcarlauncher.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ianpedraza.autolauncher"
+        applicationId = "com.droidcarlauncher.app"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
