@@ -6,7 +6,7 @@
   -->
 
 <resources>
-    <string name="menu_button">Bottón del menú</string>
+    <string name="menu_button">Botón del menú</string>
     <string name="go_back">Regresar</string>
     <string name="settings">Configuración</string>
     <string name="system_mode">Sistema</string>
@@ -28,7 +28,7 @@
     <string name="twenty_minutes">20 minutos</string>
     <string name="twenty_five_minutes">25 minutos</string>
     <string name="thirty_minutes">30 minutos</string>
-    <string name="enabled">Enabled</string>
+    <string name="enabled">Activado</string>
     <string name="five_seconds">5 segundos (Solo Debug)</string>
     <string name="automatic">Automático</string>
     <string name="portrait">Vertical</string>
@@ -45,7 +45,7 @@
     <string name="hide">Ocultar</string>
     <string name="uninstall">Desinstalar</string>
     <string name="edit">Editar</string>
-    <string name="check_icon">Icon de selección</string>
+    <string name="check_icon">Icono de selección</string>
     <string name="applications">Aplicaciones</string>
     <string name="show_hide_apps_instructions">Selecciona las aplicaciones para mostrar en la pantalla principal</string>
     <string name="select_all">Seleccionar todo</string>
@@ -53,7 +53,7 @@
     <string name="cancel">Cancelar</string>
     <string name="e_empty_name">\* El nombre está vacío</string>
     <string name="restore">Restaurar</string>
-    <string name="e_only_letters_or_digits">\* Sólo se permiten letras y dígitos</string>
+    <string name="e_only_letters_or_digits">\* Solo se permiten letras y dígitos</string>
     <string name="e_max_length">\* El nombre es muy largo</string>
     <string name="icon_packs">Paquetes de iconos</string>
     <string name="error_getting_icon_packs">Error al obtener los paquetes de iconos</string>
@@ -62,7 +62,7 @@
     <string name="get_more_icon_packs">Obtener más paquetes de iconos</string>
     <string name="play_store_query_icon_packs">Packs de iconos</string>
     <string name="error_getting_icons">Error al obtener los iconos</string>
-    <string name="no_suggestions_found">No se encontrarón sugerencias</string>
+    <string name="no_suggestions_found">No se encontraron sugerencias</string>
     <string name="error_getting_suggestions">Error al obtener las sugerencias</string>
     <string name="icon_pack">Paquete de iconos</string>
     <string name="dark_theme">Tema oscuro</string>

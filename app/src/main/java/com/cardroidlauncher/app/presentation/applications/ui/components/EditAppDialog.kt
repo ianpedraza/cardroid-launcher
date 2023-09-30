@@ -88,6 +88,7 @@ fun EditAppDialog(
 
     AlertDialog(
         modifier = modifier,
+        shape = MaterialTheme.shapes.medium,
         onDismissRequest = { onEvent(LauncherEvent.OnDismissEditApp) },
         confirmButton = {
             Button(

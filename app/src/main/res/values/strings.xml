@@ -63,7 +63,7 @@
     <string name="reset_icons">Reset icons</string>
     <string name="none">None</string>
     <string name="ok">OK</string>
-    <string name="reset_icons_instructions">All custom icons and label will be reset</string>
+    <string name="reset_icons_instructions">All custom icons and labels will be reset</string>
     <string name="e_reset_icons">An error occurred while resetting icons</string>
     <string name="icons_reset">The icons have been reset.</string>
     <string name="wallpaper_thanks">Wallpaper Thanks</string>

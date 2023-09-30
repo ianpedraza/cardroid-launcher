@@ -96,6 +96,7 @@ fun AppearanceSettingsScreen(
 
             if (showResetIcons) {
                 AlertDialog(
+                    shape = MaterialTheme.shapes.medium,
                     onDismissRequest = viewModel::onResetIconsDialogDismiss,
                     confirmButton = {
                         Button(onClick = viewModel::onConfirmResetIcons) {
@@ -116,6 +117,7 @@ fun AppearanceSettingsScreen(
                 when (state) {
                     is DataState.Error -> {
                         AlertDialog(
+                            shape = MaterialTheme.shapes.medium,
                             onDismissRequest = viewModel::onResetIconsStateDismiss,
                             confirmButton = {
                                 Button(onClick = viewModel::onResetIconsStateDismiss) {
@@ -150,6 +152,7 @@ fun AppearanceSettingsScreen(
 
                     is DataState.Success -> {
                         AlertDialog(
+                            shape = MaterialTheme.shapes.medium,
                             onDismissRequest = viewModel::onResetIconsStateDismiss,
                             confirmButton = {
                                 Button(onClick = viewModel::onResetIconsStateDismiss) {

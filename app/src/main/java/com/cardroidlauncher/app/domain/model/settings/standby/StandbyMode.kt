@@ -31,6 +31,7 @@ sealed class StandbyMode(
         val values
             get() = StandbyMode::class.sealedSubclasses
                 .mapNotNull { it.objectInstance }
+                .filter { it != FiveSeconds }
                 .sortedBy { it.value }
 
         private const val FIVE_SECONDS_VALUE = 5_000L
