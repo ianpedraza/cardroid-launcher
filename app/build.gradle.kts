@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.droidcarlauncher.app"
+    namespace = "com.cardroidlauncher.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.droidcarlauncher.app"
+        applicationId = "com.cardroidlauncher.app"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
