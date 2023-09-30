@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ strings.xml
+  ~ AutoLauncher Android
+  ~ Created by ian.pedraza on 7/9/23 17:52
+  ~ Copyright © 2023 AutoLauncher. All rights reserved.
+  -->
+
+<resources>
+    <string name="menu_button">Bottón del menú</string>
+    <string name="go_back">Regresar</string>
+    <string name="settings">Configuración</string>
+    <string name="system_mode">Sistema</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="light_mode">Modo claro</string>
+    <string name="standby_mode">Modo de espera</string>
+    <string name="wallpaper">Fondo de pantalla</string>
+    <string name="icon">Icono</string>
+    <string name="icon_forward">Icono adelante</string>
+    <string name="error_getting_system_apps">Error al obtener las aplicaciones</string>
+    <string name="retry">Reintentar</string>
+    <string name="appearance">Apariencia</string>
+    <string name="voice_search">Búsqueda por voz</string>
+    <string name="disabled">Desactivado</string>
+    <string name="two_minutes">2 minutos</string>
+    <string name="five_minutes">5 minutos</string>
+    <string name="ten_minutes">10 minutos</string>
+    <string name="fifteen_minutes">15 minutos</string>
+    <string name="twenty_minutes">20 minutos</string>
+    <string name="twenty_five_minutes">25 minutos</string>
+    <string name="thirty_minutes">30 minutos</string>
+    <string name="enabled">Enabled</string>
+    <string name="five_seconds">5 segundos (Solo Debug)</string>
+    <string name="automatic">Automático</string>
+    <string name="portrait">Vertical</string>
+    <string name="landscape">Horizontal</string>
+    <string name="screen_orientation">Orientación de la pantalla</string>
+    <string name="steering_wheel_position">Posición del volante</string>
+    <string name="clock_format">Formato del reloj</string>
+    <string name="general">General</string>
+    <string name="left">Izquierdo</string>
+    <string name="right">Derecha</string>
+    <string name="time_24h">24h</string>
+    <string name="time_12h">12h</string>
+    <string name="info">Info</string>
+    <string name="hide">Ocultar</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="edit">Editar</string>
+    <string name="check_icon">Icon de selección</string>
+    <string name="applications">Aplicaciones</string>
+    <string name="show_hide_apps_instructions">Selecciona las aplicaciones para mostrar en la pantalla principal</string>
+    <string name="select_all">Seleccionar todo</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="e_empty_name">\* El nombre está vacío</string>
+    <string name="restore">Restaurar</string>
+    <string name="e_only_letters_or_digits">\* Sólo se permiten letras y dígitos</string>
+    <string name="e_max_length">\* El nombre es muy largo</string>
+    <string name="icon_packs">Paquetes de iconos</string>
+    <string name="error_getting_icon_packs">Error al obtener los paquetes de iconos</string>
+    <string name="select_icon">Selecciona un icono</string>
+    <string name="suggested">Iconos sugeridos</string>
+    <string name="get_more_icon_packs">Obtener más paquetes de iconos</string>
+    <string name="play_store_query_icon_packs">Packs de iconos</string>
+    <string name="error_getting_icons">Error al obtener los iconos</string>
+    <string name="no_suggestions_found">No se encontrarón sugerencias</string>
+    <string name="error_getting_suggestions">Error al obtener las sugerencias</string>
+    <string name="icon_pack">Paquete de iconos</string>
+    <string name="dark_theme">Tema oscuro</string>
+    <string name="reset_icons">Reiniciar iconos</string>
+    <string name="none">Ninguno</string>
+    <string name="ok">Aceptar</string>
+    <string name="reset_icons_instructions">Todos los iconos y etiquetas personalizadas serán restablecidas</string>
+    <string name="e_reset_icons">Ocurrió un error al restablecer los iconos</string>
+    <string name="icons_reset">Los iconos han sido restablecidos.</string>
+    <string name="wallpaper_thanks">Agradecimientos de los fondos</string>
+</resources>
