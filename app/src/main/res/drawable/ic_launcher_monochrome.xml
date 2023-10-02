@@ -1,0 +1,31 @@
+<!--
+  ~ ic_launcher_monochrome.xml
+  ~ CardroidLauncher Android
+  ~ Created by ian.pedraza on 2/10/23 11:20
+  ~ Copyright © 2023 CardroidLauncher. All rights reserved.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="1066"
+    android:viewportHeight="831">
+    <group
+        android:scaleX="0.43"
+        android:scaleY="0.3352064"
+        android:translateX="303.81"
+        android:translateY="276.22174">
+
+        <path
+            android:fillColor="#000000"
+            android:pathData="M828,706V770.7C828,804 863.3,831 906.8,831H954.2C997.7,831 1033,804 1033,770.7V706H828Z" />
+        <path
+            android:fillColor="#000000"
+            android:pathData="M33,706V770.7C33,804 68.3,831 111.8,831H159.2C202.7,831 238,804 238,770.7V706H33Z" />
+        <path
+            android:fillColor="#000000"
+            android:fillType="evenOdd"
+            android:pathData="M776.5,168.8L859.4,25.2C864,17.2 861.2,7 853.3,2.3C845.3,-2.4 835,0.3 830.4,8.4L746.4,153.8C682.4,124.6 610.2,108.2 532.7,108.2C455.1,108.2 383,124.6 318.9,153.8L234.9,8.4C230.2,0.3 220,-2.4 212,2.3C203.9,7 201.2,17.2 205.9,25.2L288.8,168.8C193.2,220.6 118.2,302.5 74.2,401.7C30.6,420.3 0,463.6 0,514V666C0,682.6 13.4,696 30,696H1036C1052.6,696 1066,682.6 1066,666V514C1066,463.3 1035,419.7 990.9,401.4C946.9,302.3 872,220.6 776.5,168.8ZM136,581C163.6,581 186,558.6 186,531C186,503.4 163.6,481 136,481C108.4,481 86,503.4 86,531C86,558.6 108.4,581 136,581ZM980,531C980,558.6 957.6,581 930,581C902.4,581 880,558.6 880,531C880,503.4 902.4,481 930,481C957.6,481 980,503.4 980,531ZM533,174C369.3,174 226.1,261.4 147.3,392H918.7C839.9,261.4 696.7,174 533,174Z" />
+
+    </group>
+</vector>
