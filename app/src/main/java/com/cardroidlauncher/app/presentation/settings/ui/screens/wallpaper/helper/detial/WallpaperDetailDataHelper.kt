@@ -1,11 +1,11 @@
 /*
  * WallpaperDetailDataHelper.kt
  * CardroidLauncher Android
- * Created by ian.pedraza on 28/9/23 15:06
+ * Created by ian.pedraza on 2/10/23 11:48
  * Copyright © 2023 CardroidLauncher. All rights reserved.
  */
 
-package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper
+package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial
 
 import javax.inject.Inject
 

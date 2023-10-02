@@ -7,6 +7,7 @@
 
 package com.cardroidlauncher.app.di
 
+import android.app.WallpaperManager
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -56,8 +57,10 @@ import com.cardroidlauncher.app.presentation.main.helper.standby.StandbyDataHelp
 import com.cardroidlauncher.app.presentation.main.helper.standby.StandbyHelper
 import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.iconpack.helper.IconPackDataHelper
 import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.iconpack.helper.IconPackHelper
-import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.WallpaperDetailDataHelper
-import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.WallpaperDetailHelper
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial.WallpaperDetailDataHelper
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial.WallpaperDetailHelper
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.wallpaper.WallpaperDataHelper
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.wallpaper.WallpaperHelper
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -156,6 +159,12 @@ abstract class DataModule {
         helper: WallpaperDetailDataHelper,
     ): WallpaperDetailHelper
 
+    @Singleton
+    @Binds
+    abstract fun provideWallpaperHelper(
+        helper: WallpaperDataHelper,
+    ): WallpaperHelper
+
     companion object {
 
         @Singleton
@@ -206,5 +215,11 @@ abstract class DataModule {
         @Provides
         @MainDispatcher
         fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+
+        @Singleton
+        @Provides
+        fun provideWallpaperManager(
+            @ApplicationContext context: Context,
+        ): WallpaperManager = WallpaperManager.getInstance(context)
     }
 }

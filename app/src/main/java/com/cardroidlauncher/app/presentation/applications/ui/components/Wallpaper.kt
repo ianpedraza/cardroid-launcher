@@ -34,7 +34,10 @@ fun Wallpaper(
                 wallpaper.day
             }
 
-            Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background))
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background))
 
             image?.let { resource ->
                 AsyncImage(

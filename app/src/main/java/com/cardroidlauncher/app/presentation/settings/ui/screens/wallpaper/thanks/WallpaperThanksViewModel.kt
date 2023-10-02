@@ -9,7 +9,7 @@ package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.than
 
 import androidx.lifecycle.ViewModel
 import com.cardroidlauncher.app.domain.model.settings.wallpaper.Wallpaper
-import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.WallpaperDetailHelper
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial.WallpaperDetailHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

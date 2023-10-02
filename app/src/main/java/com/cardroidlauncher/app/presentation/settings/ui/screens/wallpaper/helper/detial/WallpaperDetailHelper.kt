@@ -5,7 +5,7 @@
  * Copyright © 2023 CardroidLauncher. All rights reserved.
  */
 
-package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper
+package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial
 
 interface WallpaperDetailHelper {
     fun createUrl(author: String): String

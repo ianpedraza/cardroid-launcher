@@ -13,6 +13,7 @@ import com.cardroidlauncher.app.domain.model.settings.wallpaper.Wallpaper
 import com.cardroidlauncher.app.domain.model.settings.wallpaper.WallpaperSettings
 import com.cardroidlauncher.app.domain.usecases.settings.GetWallpaperSettingsUseCase
 import com.cardroidlauncher.app.domain.usecases.settings.SaveWallpaperSettingsUseCase
+import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.wallpaper.WallpaperHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,6 +26,7 @@ import javax.inject.Inject
 class WallpaperSettingsViewModel @Inject constructor(
     private val saveWallpaperSettingsUseCase: SaveWallpaperSettingsUseCase,
     private val getWallpaperSettingsUseCase: GetWallpaperSettingsUseCase,
+    private val wallpaperHelper: WallpaperHelper
 ) : ViewModel() {
 
     private val _goBack = MutableStateFlow(false)
@@ -59,6 +61,10 @@ class WallpaperSettingsViewModel @Inject constructor(
             settings?.let {
                 val newSettings = it.copy(wallpaper = wallpaper)
                 saveWallpaperSettingsUseCase(newSettings)
+
+                wallpaper.day?.let { resource ->
+                    wallpaperHelper.setWallpaper(resource)
+                }
             }
         }
     }
