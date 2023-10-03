@@ -40,8 +40,8 @@ class CustomAppsDataValidatorTest {
 
         val result = validator.validate(appModel)
 
-        assertThat(result, IsEqual(EMPTY_ERROR_NAME_ERROR))
-        verify(resources).emptyNameError()
+        assertThat(result, IsNull())
+        verifyNoInteractions(resources)
     }
 
     @Test

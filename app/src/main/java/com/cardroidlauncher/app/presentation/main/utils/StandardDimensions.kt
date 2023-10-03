@@ -25,7 +25,7 @@ object StandardDimensions {
     private val dimen52dp = 52.dp
     private val dimen64dp = 64.dp
     private val dimen84dp = 84.dp
-    private val dimen90dp = 90.dp
+    private val dimen100dp = 100.dp
     private val dimen110dp = 110.dp
     private val dimen120dp = 120.dp
     private val dimen128dp = 128.dp
@@ -59,7 +59,7 @@ object StandardDimensions {
     val cornerRadiusExtraLarge = dimen128dp
 
     val statusBarSizeLandscape = dimen130dp
-    val statusBarSizePortrait = dimen90dp
+    val statusBarSizePortrait = dimen100dp
 
     const val aspectRatio1to1 = 1f
     const val aspectRatio16to9 = 16f / 9f

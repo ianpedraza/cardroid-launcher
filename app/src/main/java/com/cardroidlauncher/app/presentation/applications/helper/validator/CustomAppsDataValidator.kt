@@ -19,13 +19,13 @@ class CustomAppsDataValidator @Inject constructor(
         val customLabel = app.customLabel?.trim()
         return with(resourceManager) {
             when {
-                customLabel.isNullOrEmpty() -> emptyNameError()
+                customLabel != null && customLabel.isEmpty() -> emptyNameError()
 
-                customLabel.any {
+                customLabel != null && customLabel.any {
                     it.isLetterOrDigit().not() && it.isWhitespace().not()
                 } -> onlyLettersAndDigitsError()
 
-                customLabel.length > CustomAppsValidator.MAX_LENGTH -> maxLengthError()
+                customLabel != null && customLabel.length > CustomAppsValidator.MAX_LENGTH -> maxLengthError()
 
                 else -> null
             }

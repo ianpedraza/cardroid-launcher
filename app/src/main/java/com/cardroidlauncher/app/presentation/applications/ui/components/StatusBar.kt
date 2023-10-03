@@ -76,12 +76,18 @@ private fun LandscapeStatusBar(
     onEvent: (LauncherEvent) -> Unit,
 ) {
     Box(
-        modifier = modifier.then(Modifier.fillMaxHeight().width(statusBarSizeLandscape)),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxHeight()
+                .width(statusBarSizeLandscape)
+        ),
     ) {
         Background()
 
         Column(
-            modifier = Modifier.fillMaxSize().padding(smallSize),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(smallSize),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             ClockWidget(
@@ -110,12 +116,18 @@ private fun PortraitStatusBar(
     onEvent: (LauncherEvent) -> Unit,
 ) {
     Box(
-        modifier = modifier.then(Modifier.fillMaxWidth().height(statusBarSizePortrait)),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .height(statusBarSizePortrait)
+        ),
     ) {
         Background()
 
         Row(
-            modifier = Modifier.fillMaxSize().padding(smallSize),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(smallSize),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (steeringWheelPosition == SteeringWheelPosition.Left) {
