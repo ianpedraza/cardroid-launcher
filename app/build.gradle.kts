@@ -15,8 +15,8 @@ android {
         applicationId = "com.cardroidlauncher.app"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -152,7 +152,7 @@ object Dependencies {
 
     object Accompanist {
         internal object Versions {
-            const val core = "0.33.1-alpha"
+            const val core = "0.32.0"
         }
 
         const val drawablePainter =
