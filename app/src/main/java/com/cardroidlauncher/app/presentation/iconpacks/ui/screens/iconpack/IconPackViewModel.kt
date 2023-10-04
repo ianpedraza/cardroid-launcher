@@ -47,6 +47,8 @@ class IconPackViewModel @Inject constructor(
     private val _iconSelected = MutableStateFlow<CustomIcon?>(null)
     val iconSelected = _iconSelected.asStateFlow()
 
+    private val iconsList = mutableListOf<CustomIcon>()
+
     init {
         getIconPack(iconPackJson)
     }
@@ -56,6 +58,11 @@ class IconPackViewModel @Inject constructor(
         viewModelScope.launch {
             getAllIconsUseCase(data).onEach {
                 _iconsState.value = it
+
+                if (it is DataState.Success) {
+                    iconsList.clear()
+                    iconsList.addAll(it.data)
+                }
             }.launchIn(viewModelScope)
         }
     }
@@ -79,5 +86,19 @@ class IconPackViewModel @Inject constructor(
     private fun getIconPack(json: String) {
         _iconPack.value = gson.fromJson(json, IconPackModel::class.java)
         getAllIcons()
+    }
+
+    fun search(query: String) {
+        viewModelScope.launch {
+            val currentState = iconsState.value
+            if (currentState is DataState.Success) {
+                val results = if (query.isEmpty()) {
+                    iconsList
+                } else {
+                    iconsList.filter { it.drawableName.contains(query) }
+                }
+                _iconsState.value = DataState.Success(results)
+            }
+        }
     }
 }

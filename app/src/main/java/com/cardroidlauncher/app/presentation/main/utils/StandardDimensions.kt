@@ -32,6 +32,7 @@ object StandardDimensions {
     private val dimen130dp = 130.dp
     private val dimen168p = 168.dp
     private val dimen250dp = 250.dp
+    private val dimen256dp = 256.dp
 
     val extraSmallSize = dimen8dp
     val smallSize = dimen16dp
@@ -43,8 +44,10 @@ object StandardDimensions {
     val iconElevation = dimen8dp
     val iconElevationLarge = dimen16dp
 
-    val appIconSizeSmall = dimen84dp
-    val appIconSize = dimen168p
+    val appIconSize = dimen84dp
+    val appIconSizeSmall = dimen128dp
+    val appIconSizeMedium = dimen168p
+    val appIconSizeLarge = dimen256dp
     const val appIconSizeFactor = 0.45f
     const val appIconSizeFactorDragged = 0.6f
 

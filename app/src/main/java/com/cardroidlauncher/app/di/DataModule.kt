@@ -12,8 +12,6 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.room.Room
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.cardroidlauncher.app.data.datasource.applications.ApplicationsDataSource
 import com.cardroidlauncher.app.data.datasource.iconpacks.IconPacksDataSource
 import com.cardroidlauncher.app.data.datasource.settings.SettingsDataSource
@@ -35,6 +33,8 @@ import com.cardroidlauncher.app.data.repository.settings.DefaultSettingsReposito
 import com.cardroidlauncher.app.data.repository.settings.SettingsRepository
 import com.cardroidlauncher.app.domain.model.settings.appearance.darkheme.DarkThemeMode
 import com.cardroidlauncher.app.domain.model.settings.appearance.darkheme.DarkThemeModeAdapter
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSizeAdapter
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 import com.cardroidlauncher.app.domain.model.settings.clockformat.ClockFormat
 import com.cardroidlauncher.app.domain.model.settings.clockformat.ClockFormatAdapter
 import com.cardroidlauncher.app.domain.model.settings.general.orientation.ScreenOrientation
@@ -61,6 +61,8 @@ import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helpe
 import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.detial.WallpaperDetailHelper
 import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.wallpaper.WallpaperDataHelper
 import com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper.helper.wallpaper.WallpaperHelper
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -198,6 +200,7 @@ abstract class DataModule {
             .registerTypeAdapter(ScreenOrientation::class.java, ScreenOrientationAdapter())
             .registerTypeAdapter(SteeringWheelPosition::class.java, SteeringWheelPositionAdapter())
             .registerTypeAdapter(ClockFormat::class.java, ClockFormatAdapter())
+            .registerTypeAdapter(IconsSize::class.java, IconsSizeAdapter())
             .create()
 
         @Provides

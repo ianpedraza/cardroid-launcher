@@ -73,4 +73,10 @@
     <string name="e_reset_icons">Ocurrió un error al restablecer los iconos</string>
     <string name="icons_reset">Los iconos han sido restablecidos.</string>
     <string name="wallpaper_thanks">Agradecimientos de los fondos</string>
+    <string name="icons_size">Tamaño de los iconos</string>
+    <string name="small">Pequeño</string>
+    <string name="medium">Mediano</string>
+    <string name="large">Large</string>
+    <string name="search">Buscar</string>
+    <string name="close">Cerrar</string>
 </resources>

@@ -16,9 +16,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.presentation.main.ui.components.VerticalSpacer
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeFactor
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeFactorDragged
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.iconElevation
@@ -30,6 +31,8 @@ fun LauncherIconItem(
     modifier: Modifier = Modifier,
     app: AppModel,
     isDragging: Boolean = false,
+    iconSize: Dp,
+    labelStyle: TextStyle,
     onClick: () -> Unit,
 ) {
     val dynamicIconElevation by animateDpAsState(
@@ -37,7 +40,7 @@ fun LauncherIconItem(
         label = app.label,
     )
     val dynamicIconSize by animateDpAsState(
-        targetValue = if (isDragging) appIconSize * appIconSizeFactorDragged else appIconSize * appIconSizeFactor,
+        targetValue = if (isDragging) iconSize * appIconSizeFactorDragged else iconSize * appIconSizeFactor,
         label = app.label,
     )
     Box(
@@ -57,7 +60,7 @@ fun LauncherIconItem(
             )
             if (isDragging.not()) {
                 VerticalSpacer(smallSize)
-                LauncherIconLabel(app = app)
+                LauncherIconLabel(app = app, style = labelStyle)
             }
         }
     }

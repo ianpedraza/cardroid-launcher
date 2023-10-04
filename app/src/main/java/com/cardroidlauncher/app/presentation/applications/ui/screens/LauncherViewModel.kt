@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.cardroidlauncher.app.di.IoDispatcher
 import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.domain.model.iconpacks.CustomIcon
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 import com.cardroidlauncher.app.domain.model.settings.general.GeneralSettings
 import com.cardroidlauncher.app.domain.model.settings.wallpaper.Wallpaper
 import com.cardroidlauncher.app.domain.usecases.applications.EditApplicationUseCase
@@ -19,6 +20,7 @@ import com.cardroidlauncher.app.domain.usecases.applications.HideApplicationsUse
 import com.cardroidlauncher.app.domain.usecases.applications.MoveApplicationsUseCase
 import com.cardroidlauncher.app.domain.usecases.applications.RemoveApplicationsUseCase
 import com.cardroidlauncher.app.domain.usecases.applications.SaveSystemApplicationsUseCase
+import com.cardroidlauncher.app.domain.usecases.settings.GetAppearanceSettingsUseCase
 import com.cardroidlauncher.app.domain.usecases.settings.GetGeneralSettingsUseCase
 import com.cardroidlauncher.app.domain.usecases.settings.GetStandbySettingsUseCase
 import com.cardroidlauncher.app.domain.usecases.settings.GetWallpaperSettingsUseCase
@@ -51,6 +53,7 @@ class LauncherViewModel @Inject constructor(
     private val moveApplicationsUseCase: MoveApplicationsUseCase,
     private val getWallpaperSettingsUseCase: GetWallpaperSettingsUseCase,
     private val getGeneralSettingsUseCase: GetGeneralSettingsUseCase,
+    private val getAppearanceSettingsUseCase: GetAppearanceSettingsUseCase,
     private val removeApplicationsUseCase: RemoveApplicationsUseCase,
     private val hideApplicationsUseCase: HideApplicationsUseCase,
     private val editApplicationUseCase: EditApplicationUseCase,
@@ -94,6 +97,9 @@ class LauncherViewModel @Inject constructor(
     private val _appToLaunchInfo = MutableStateFlow<AppModel?>(null)
     val appToLaunchInfo = _appToLaunchInfo.asStateFlow()
 
+    private val _iconsSize = MutableStateFlow<IconsSize>(IconsSize.default)
+    val iconsSize = _iconsSize.asStateFlow()
+
     private var movingAppsJob: Job? = null
     private var fetchAppsJob: Job? = null
 
@@ -101,6 +107,7 @@ class LauncherViewModel @Inject constructor(
         fetchApps()
         fetchWallpaper()
         fetchGeneralSettings()
+        fetchAppearanceSettings()
         initVoiceSearch()
     }
 
@@ -279,6 +286,15 @@ class LauncherViewModel @Inject constructor(
         viewModelScope.launch {
             getGeneralSettingsUseCase().onEach {
                 _generalSettings.value = it
+            }.launchIn(viewModelScope)
+        }
+    }
+
+
+    private fun fetchAppearanceSettings() {
+        viewModelScope.launch {
+            getAppearanceSettingsUseCase().onEach {
+                _iconsSize.value = it.iconsSize
             }.launchIn(viewModelScope)
         }
     }

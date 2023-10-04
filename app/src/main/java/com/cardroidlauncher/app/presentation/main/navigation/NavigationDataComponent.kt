@@ -58,6 +58,11 @@ class NavigationDataComponent(
         navController.navigate(route)
     }
 
+    override fun goToIconSizeSettings() {
+        val route = Routes.SettingsIconsSizeScreen.route
+        navController.navigate(route)
+    }
+
     override fun goToOrientationSettings() {
         val route = Routes.SettingsOrientationScreen.route
         navController.navigate(route)

@@ -23,7 +23,7 @@ class WallpaperDataHelper @Inject constructor(
     @DefaultDispatcher private val dispatcher: CoroutineDispatcher,
 ) : WallpaperHelper {
 
-    override suspend fun setWallpaper(id: Int) {
+    override suspend fun setWallpaper(id: Int): Unit = withContext(dispatcher) {
         BitmapFactory.decodeResource(context.resources, id)?.let { bitmap ->
             setWallpaper(bitmap)
         }

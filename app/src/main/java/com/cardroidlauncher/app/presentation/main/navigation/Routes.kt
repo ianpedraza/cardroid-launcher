@@ -16,6 +16,7 @@ import com.cardroidlauncher.app.presentation.settings.ui.screens.SettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.AppearanceSettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.darktheme.DarkThemeSettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.iconpack.IconPackChooserScreen
+import com.cardroidlauncher.app.presentation.settings.ui.screens.appearance.iconssize.IconsSizeSettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.applications.ApplicationsSettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.general.GeneralSettingsScreen
 import com.cardroidlauncher.app.presentation.settings.ui.screens.general.clock.ClockFormatSettingsScreen
@@ -153,6 +154,15 @@ sealed class Routes(val route: String) {
         }
     }
 
+    object SettingsIconsSizeScreen : Routes(SETTINGS_APPEARANCE_ICONS_SIZE) {
+        override fun createScreen(
+            navBackStackEntry: NavBackStackEntry,
+            navigationComponent: NavigationComponent,
+        ): @Composable () -> Unit = {
+            IconsSizeSettingsScreen(navigationComponent = navigationComponent)
+        }
+    }
+
     object SettingsIconPackScreen : Routes(SETTINGS_APPEARANCE_ICON_PACK) {
         override fun createScreen(
             navBackStackEntry: NavBackStackEntry,
@@ -186,6 +196,7 @@ sealed class Routes(val route: String) {
         private const val SETTINGS_GENERAL_CLOCK_FORMAT_SCREEN =
             "settings-general-clock-format-screen"
         private const val SETTINGS_APPEARANCE_DARK_THEME = "settings-appearance-dark-theme-screen"
+        private const val SETTINGS_APPEARANCE_ICONS_SIZE = "settings-appearance-icons-size-screen"
         private const val SETTINGS_APPEARANCE_ICON_PACK = "settings-appearance-icon-pack-screen"
 
         val values get() = Routes::class.sealedSubclasses.mapNotNull { it.objectInstance }

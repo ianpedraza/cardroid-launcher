@@ -8,8 +8,10 @@
 package com.cardroidlauncher.app.domain.model.settings.appearance
 
 import com.cardroidlauncher.app.domain.model.settings.appearance.darkheme.DarkThemeMode
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 
 data class AppearanceSettings(
     val darkThemeMode: DarkThemeMode = DarkThemeMode.default,
+    val iconsSize: IconsSize = IconsSize.default,
     val iconPack: String? = null
 )

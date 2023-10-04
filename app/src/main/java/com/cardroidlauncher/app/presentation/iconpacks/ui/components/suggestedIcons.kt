@@ -90,7 +90,7 @@ fun LazyGridScope.suggestedIcons(
             } else {
                 items(data) { customIcon ->
                     DrawableAppIcon(
-                        size = StandardDimensions.appIconSizeSmall,
+                        size = StandardDimensions.appIconSize,
                         drawable = customIcon.drawable,
                         contentDescription = stringResource(R.string.icon),
                         onClick = { onClick(customIcon) },

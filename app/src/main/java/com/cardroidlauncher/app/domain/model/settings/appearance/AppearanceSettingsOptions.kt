@@ -30,6 +30,11 @@ sealed class AppearanceSettingsOptions(
         label = R.string.reset_icons
     )
 
+    object IconSize : AppearanceSettingsOptions(
+        value = ICONS_SIZE_VALUE,
+        label = R.string.icons_size
+    )
+
     companion object {
 
         val values
@@ -39,7 +44,8 @@ sealed class AppearanceSettingsOptions(
 
         private const val ICON_PACK_VALUE = 0
         private const val DARK_THEME_VALUE = 1
-        private const val RESET_ICONS_VALUE = 2
+        private const val ICONS_SIZE_VALUE = 2
+        private const val RESET_ICONS_VALUE = 3
     }
 
 }

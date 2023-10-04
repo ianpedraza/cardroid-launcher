@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -23,7 +24,11 @@ import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.extraSmallSize
 
 @Composable
-fun LauncherIconLabel(modifier: Modifier = Modifier, app: AppModel) {
+fun LauncherIconLabel(
+    modifier: Modifier = Modifier,
+    style: TextStyle = MaterialTheme.typography.titleMedium,
+    app: AppModel,
+) {
     Box(
         modifier = Modifier
             .clip(MaterialTheme.shapes.extraSmall)
@@ -35,7 +40,7 @@ fun LauncherIconLabel(modifier: Modifier = Modifier, app: AppModel) {
             text = app.customLabel ?: app.label,
             maxLines = 1,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.titleMedium.copy(
+            style = style.copy(
                 color = Color.White,
                 fontWeight = FontWeight.Normal,
             ),

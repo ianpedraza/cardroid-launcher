@@ -84,4 +84,10 @@
     <string name="bobbyv" translatable="false">BobbyV</string>
     <string name="abstract_waves" translatable="false">abstract waves</string>
     <string name="gnugomez" translatable="false">gnugomez</string>
+    <string name="icons_size">Icons size</string>
+    <string name="small">Small</string>
+    <string name="medium">Mediano</string>
+    <string name="large">Large</string>
+    <string name="search">Search</string>
+    <string name="close">Close</string>
 </resources>

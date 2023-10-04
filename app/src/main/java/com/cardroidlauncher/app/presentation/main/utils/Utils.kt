@@ -19,9 +19,11 @@ import android.os.Parcelable
 import android.provider.Settings
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.result.ActivityResult
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
@@ -30,7 +32,11 @@ import androidx.lifecycle.LifecycleOwner
 import com.cardroidlauncher.app.data.framework.iconpacks.manager.iconpack.IconPackDataManager
 import com.cardroidlauncher.app.data.framework.iconpacks.manager.storage.IconStorageDataManager
 import com.cardroidlauncher.app.domain.model.applications.AppModel
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 import com.cardroidlauncher.app.domain.model.settings.general.orientation.ScreenOrientation
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeLarge
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeMedium
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeSmall
 
 object Utils {
 
@@ -116,6 +122,20 @@ object Utils {
         }
 
         return orientation
+    }
+
+    val IconsSize.dp: Dp
+        get() = when (this) {
+            IconsSize.Small -> appIconSizeSmall
+            IconsSize.Medium -> appIconSizeMedium
+            IconsSize.Large -> appIconSizeLarge
+        }
+
+    @Composable
+    fun IconsSize.labelStyle(): TextStyle = when (this) {
+        IconsSize.Small -> MaterialTheme.typography.titleSmall
+        IconsSize.Medium -> MaterialTheme.typography.titleMedium
+        IconsSize.Large -> MaterialTheme.typography.titleLarge
     }
 
     @Composable

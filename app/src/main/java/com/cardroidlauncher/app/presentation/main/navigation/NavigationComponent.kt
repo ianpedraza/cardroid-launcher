@@ -17,6 +17,7 @@ interface NavigationComponent {
     fun goToWallpaperThanks()
     fun goToDarkThemeSettings()
     fun goToIconPackSettings()
+    fun goToIconSizeSettings()
     fun goToOrientationSettings()
     fun goToSteeringWheelPositionSettings()
     fun goToClockFormatSettings()

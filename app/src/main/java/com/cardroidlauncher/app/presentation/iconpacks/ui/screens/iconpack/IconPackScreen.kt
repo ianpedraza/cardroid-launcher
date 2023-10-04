@@ -29,6 +29,7 @@ import com.cardroidlauncher.app.presentation.main.ui.components.ProgressIndicato
 import com.cardroidlauncher.app.presentation.main.ui.components.linkerror.LinkError
 import com.cardroidlauncher.app.presentation.main.ui.components.linkerror.RetryOptions
 import com.cardroidlauncher.app.presentation.main.ui.components.topbar.AppTopBarBack
+import com.cardroidlauncher.app.presentation.main.ui.components.topbar.AppTopBarSearch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,9 +56,11 @@ fun IconPackScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            AppTopBarBack(
+            AppTopBarSearch(
                 title = iconPack?.label ?: EMPTY_STRING,
                 onBackPressed = viewModel::onBackPressed,
+                isSearchEnabled = iconsState is DataState.Success,
+                onValueChange = viewModel::search
             )
         },
     ) { paddingValues ->

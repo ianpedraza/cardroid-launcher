@@ -12,6 +12,7 @@ import com.cardroidlauncher.app.data.datasource.applications.ApplicationsDataSou
 import com.cardroidlauncher.app.data.framework.iconpacks.manager.cache.CustomIconsCache
 import com.cardroidlauncher.app.data.framework.iconpacks.manager.storage.IconStorageManager
 import com.cardroidlauncher.app.domain.model.iconpacks.CustomIcon
+import com.cardroidlauncher.app.domain.utils.extension.AppModelExtension.indexOrNull
 import com.cardroidlauncher.app.mocks.ApplicationsMocks
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -158,17 +159,22 @@ class DefaultApplicationsRepositoryTest {
 
     @Test
     fun `hide applications should set hidden true to all apps`() = runTest {
-        val appsModelList = ApplicationsMocks.getApplicationsModelList().map {
-            it.copy(hidden = false)
-        }
+        val allApplications = ApplicationsMocks.getApplicationsModelList()
+        val first = allApplications.first().copy(hidden = false)
 
-        val expected = appsModelList.map { it.copy(hidden = true) }
+        val appsToHide = listOf(first)
+        val expected = allApplications.toMutableList().apply {
+            indexOrNull(first)?.let { index ->
+                add(removeAt(index).copy(hidden = true))
+            }
+        }.mapIndexed { index, app -> app.copy(position = index) }
 
         dataSource.stub {
+            onBlocking { getApplications() } doReturn allApplications
             onBlocking { update(any()) } doReturn Unit
         }
 
-        repository.hideApplications(appsModelList)
+        repository.hideApplications(appsToHide)
 
         verify(dataSource).update(expected)
     }

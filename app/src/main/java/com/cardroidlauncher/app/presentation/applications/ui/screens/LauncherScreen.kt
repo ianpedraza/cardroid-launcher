@@ -42,6 +42,7 @@ fun LauncherScreen(
     val appsState by viewModel.appsState.collectAsState()
     val wallpaper by viewModel.wallpaper.collectAsState()
     val generalSettings by viewModel.generalSettings.collectAsState()
+    val iconsSize by viewModel.iconsSize.collectAsState()
     val standbyModeEnabled by viewModel.standbyModeEnabled.collectAsState()
     val appForLaunch by viewModel.appForLaunch.collectAsState()
     val appToUninstall by viewModel.appToUninstall.collectAsState()
@@ -120,6 +121,7 @@ fun LauncherScreen(
                 screenOrientation = settings.orientation,
                 steeringWheelPosition = settings.steeringWheelPosition,
                 isVoiceSearchAvailable = isVoiceSearchAvailable,
+                iconsSize = iconsSize,
                 appsState = appsState,
             )
 

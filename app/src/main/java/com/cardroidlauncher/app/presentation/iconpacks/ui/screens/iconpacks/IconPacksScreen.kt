@@ -33,7 +33,7 @@ import com.cardroidlauncher.app.presentation.main.ui.components.PlayStoreTile
 import com.cardroidlauncher.app.presentation.main.ui.components.fullLineColumn
 import com.cardroidlauncher.app.presentation.main.ui.components.fullLineVerticalSpacer
 import com.cardroidlauncher.app.presentation.main.ui.components.topbar.AppTopBarBack
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeSmall
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.smallSize
 import com.cardroidlauncher.app.presentation.main.utils.Utils.launchUrl
 
@@ -97,7 +97,7 @@ fun IconPacksScreen(
 
             LazyVerticalGrid(
                 modifier = Modifier.padding(top = smallSize),
-                columns = GridCells.Adaptive(appIconSizeSmall),
+                columns = GridCells.Adaptive(appIconSize),
             ) {
                 suggestedIcons(
                     suggestedIconsState = suggestedIconsState,

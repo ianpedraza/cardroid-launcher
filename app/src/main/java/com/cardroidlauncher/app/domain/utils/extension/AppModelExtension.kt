@@ -22,7 +22,7 @@ object AppModelExtension {
         }.reindex()
     }
 
-    private fun List<AppModel>.reindex(): List<AppModel> {
+    fun List<AppModel>.reindex(): List<AppModel> {
         return mapIndexed { index, app ->
             app.copy(position = index)
         }

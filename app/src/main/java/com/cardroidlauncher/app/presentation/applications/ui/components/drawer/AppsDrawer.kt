@@ -25,14 +25,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntSize
 import com.cardroidlauncher.app.domain.model.applications.AppModel
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 import com.cardroidlauncher.app.presentation.applications.ui.LauncherEvent
 import com.cardroidlauncher.app.presentation.applications.ui.components.AppsActionsBar
 import com.cardroidlauncher.app.presentation.applications.ui.components.drag.utils.DraggableSurface
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.extraSmallSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.pagerIndicatorHeight
+import com.cardroidlauncher.app.presentation.main.utils.Utils.dp
+import com.cardroidlauncher.app.presentation.main.utils.Utils.labelStyle
 import com.cardroidlauncher.app.presentation.main.utils.Utils.withDensity
 import kotlin.math.floor
 
@@ -41,20 +44,24 @@ import kotlin.math.floor
 fun AppsDrawer(
     modifier: Modifier = Modifier,
     apps: List<AppModel>,
+    iconsSize: IconsSize,
     onEvent: (LauncherEvent) -> Unit,
 ) {
     val density = LocalContext.current.resources.displayMetrics.density
 
     var pageConfig by remember { mutableStateOf<PageConfig?>(null) }
     var drawerSize by remember { mutableStateOf<IntSize?>(null) }
+    var iconSize by remember { mutableStateOf(iconsSize.dp) }
 
-    LaunchedEffect(drawerSize) {
+    LaunchedEffect(drawerSize, iconsSize) {
         drawerSize?.let { size ->
+            iconSize = iconsSize.dp
+
             val widthInDp = size.width.withDensity(density)
             val heightInDp = size.height.withDensity(density)
-            val columns = floor(widthInDp / appIconSize).toInt()
+            val columns = floor(widthInDp / iconSize).toInt()
             val rows =
-                floor((heightInDp - pagerIndicatorHeight) / appIconSize).toInt()
+                floor((heightInDp - pagerIndicatorHeight) / iconSize).toInt()
             val pageSize = rows * columns
             pageConfig = PageConfig(
                 pageSize = pageSize,
@@ -79,7 +86,9 @@ fun AppsDrawer(
                 val pagerState = rememberPagerState(pageCount = { pages.size })
 
                 Column(
-                    modifier = Modifier.animateContentSize().fillMaxSize(),
+                    modifier = Modifier
+                        .animateContentSize()
+                        .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     AppsActionsBar(onEvent = onEvent)
@@ -95,6 +104,8 @@ fun AppsDrawer(
                             apps = pages[pageIndex],
                             config = config,
                             onEvent = onEvent,
+                            iconSize = iconSize,
+                            labelStyle = iconsSize.labelStyle(),
                             pagerState = pagerState,
                         )
                     }

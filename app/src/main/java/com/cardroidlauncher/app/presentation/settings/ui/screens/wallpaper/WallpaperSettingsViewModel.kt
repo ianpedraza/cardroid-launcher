@@ -7,6 +7,7 @@
 
 package com.cardroidlauncher.app.presentation.settings.ui.screens.wallpaper
 
+import android.os.Build
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cardroidlauncher.app.domain.model.settings.wallpaper.Wallpaper

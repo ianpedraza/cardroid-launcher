@@ -45,7 +45,7 @@ import com.cardroidlauncher.app.presentation.iconpacks.ui.IconPacksActivity
 import com.cardroidlauncher.app.presentation.main.ui.components.DrawableAppIcon
 import com.cardroidlauncher.app.presentation.main.ui.components.VerticalSpacer
 import com.cardroidlauncher.app.presentation.main.ui.components.icons.AppIconButton
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeSmall
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.iconElevation
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.iconSizeSmall
 import com.cardroidlauncher.app.presentation.main.utils.Utils.getCustomIcon
@@ -130,7 +130,7 @@ fun EditAppDialog(
                         modifier = modifier.then(Modifier.fillMaxSize()),
                         drawable = icon,
                         contentDescription = app.label,
-                        size = appIconSizeSmall,
+                        size = appIconSize,
                         elevation = iconElevation,
                         onClick = {
                             val intent = IconPacksActivity.getIntent(context, app)

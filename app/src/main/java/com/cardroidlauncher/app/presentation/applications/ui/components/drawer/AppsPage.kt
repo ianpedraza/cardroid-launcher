@@ -23,10 +23,11 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.presentation.applications.ui.LauncherEvent
 import com.cardroidlauncher.app.presentation.applications.ui.components.app.DraggableLauncherIconItem
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.aspectRatio1to1
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.extraSmallSize
 
@@ -37,6 +38,8 @@ fun AppsPage(
     config: PageConfig,
     apps: List<AppModel>,
     pagerState: PagerState,
+    iconSize: Dp,
+    labelStyle: TextStyle,
     onEvent: (LauncherEvent) -> Unit,
 ) {
     Box(
@@ -45,7 +48,7 @@ fun AppsPage(
     ) {
         LazyVerticalGrid(
             modifier = Modifier.fillMaxSize(),
-            columns = GridCells.Adaptive(appIconSize),
+            columns = GridCells.Adaptive(iconSize),
             verticalArrangement = Arrangement.SpaceEvenly,
         ) {
             items(apps, key = { it.id }) { app ->
@@ -60,6 +63,8 @@ fun AppsPage(
                         .padding(bottom = extraSmallSize)
                         .align(Alignment.Center),
                     app = app,
+                    iconSize = iconSize,
+                    labelStyle = labelStyle,
                     pagerState = pagerState,
                     onEvent = onEvent,
                 )
@@ -68,7 +73,11 @@ fun AppsPage(
             if (apps.size < config.pageSize) {
                 val remainingSize = config.pageSize - apps.size
                 items(remainingSize) {
-                    Box(modifier = Modifier.requiredSize(appIconSize).aspectRatio(aspectRatio1to1))
+                    Box(
+                        modifier = Modifier
+                            .requiredSize(iconSize)
+                            .aspectRatio(aspectRatio1to1)
+                    )
                 }
             }
         }

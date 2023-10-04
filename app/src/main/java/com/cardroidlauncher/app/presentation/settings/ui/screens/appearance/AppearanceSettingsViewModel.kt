@@ -37,6 +37,9 @@ class AppearanceSettingsViewModel @Inject constructor(
     private val _showResetIconsDialog = MutableStateFlow(false)
     val showResetIconsDialog = _showResetIconsDialog.asStateFlow()
 
+    private val _launchIconsSizeSettings = MutableStateFlow(false)
+    val launchIconsSizeSettings = _launchIconsSizeSettings.asStateFlow()
+
     private val _resetIconsState = MutableStateFlow<DataState<Unit>?>(null)
     val resetIconsState = _resetIconsState.asStateFlow()
 
@@ -54,6 +57,10 @@ class AppearanceSettingsViewModel @Inject constructor(
 
     fun onLaunchedIconPackSettings() {
         _launchIconPackSettings.value = false
+    }
+
+    fun onLaunchedIconsSizeSettings() {
+        _launchIconsSizeSettings.value = false
     }
 
     fun onResetIconsDialogDismiss() {
@@ -78,6 +85,7 @@ class AppearanceSettingsViewModel @Inject constructor(
             AppearanceSettingsOptions.DarkTheme -> onLaunchDarkThemeSettings()
             AppearanceSettingsOptions.IconPack -> onLaunchIconPackSettings()
             AppearanceSettingsOptions.ResetIcons -> onResetIcons()
+            AppearanceSettingsOptions.IconSize -> onLaunchIconsSize()
         }
     }
 
@@ -87,6 +95,10 @@ class AppearanceSettingsViewModel @Inject constructor(
 
     private fun onLaunchIconPackSettings() {
         _launchIconPackSettings.value = true
+    }
+
+    private fun onLaunchIconsSize() {
+        _launchIconsSizeSettings.value = true
     }
 
     private fun onResetIcons() {

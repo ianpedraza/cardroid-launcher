@@ -16,10 +16,11 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.presentation.applications.ui.LauncherEvent
 import com.cardroidlauncher.app.presentation.applications.ui.components.drag.DragAndDropItem
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.aspectRatio1to1
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -28,13 +29,15 @@ fun DraggableLauncherIconItem(
     modifier: Modifier = Modifier,
     app: AppModel,
     pagerState: PagerState,
+    iconSize: Dp,
+    labelStyle: TextStyle,
     onEvent: (LauncherEvent) -> Unit,
 ) {
     val context = LocalContext.current
 
     Box(
         modifier = Modifier
-            .requiredSize(appIconSize)
+            .requiredSize(iconSize)
             .aspectRatio(aspectRatio1to1)
             .then(modifier),
     ) {
@@ -52,6 +55,8 @@ fun DraggableLauncherIconItem(
                 modifier = Modifier.fillMaxSize(),
                 app = app,
                 isDragging = isDragging,
+                iconSize = iconSize,
+                labelStyle = labelStyle,
                 onClick = { onEvent(LauncherEvent.OnLaunchApp(app)) },
             )
         }

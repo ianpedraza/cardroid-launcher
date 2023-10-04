@@ -13,7 +13,9 @@ import com.cardroidlauncher.app.data.framework.iconpacks.manager.storage.IconSto
 import com.cardroidlauncher.app.di.IoDispatcher
 import com.cardroidlauncher.app.domain.model.applications.AppModel
 import com.cardroidlauncher.app.domain.model.iconpacks.CustomIcon
+import com.cardroidlauncher.app.domain.utils.extension.AppModelExtension.indexOrNull
 import com.cardroidlauncher.app.domain.utils.extension.AppModelExtension.move
+import com.cardroidlauncher.app.domain.utils.extension.AppModelExtension.reindex
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -77,8 +79,16 @@ class DefaultApplicationsRepository @Inject constructor(
 
     override suspend fun hideApplications(apps: List<AppModel>): Unit = withContext(dispatcher) {
         try {
-            val hiddenApps = apps.map { it.copy(hidden = true) }
-            dataSource.update(hiddenApps)
+            val allApplications = dataSource.getApplications().toMutableList()
+
+            apps.forEach { app ->
+                allApplications.indexOrNull(app)?.let { index ->
+                    val removedApp = allApplications.removeAt(index).copy(hidden = true)
+                    allApplications.add(removedApp)
+                }
+            }
+
+            dataSource.update(allApplications.reindex())
         } catch (e: Exception) {
             // TODO("Implement Crashlytics")
         }

@@ -19,7 +19,7 @@ import com.cardroidlauncher.app.R
 import com.cardroidlauncher.app.domain.model.iconpacks.CustomIcon
 import com.cardroidlauncher.app.presentation.main.ui.components.DrawableAppIcon
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions
-import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSizeSmall
+import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.appIconSize
 import com.cardroidlauncher.app.presentation.main.utils.StandardDimensions.smallSize
 
 @Composable
@@ -30,11 +30,11 @@ fun IconsList(
 ) {
     LazyVerticalGrid(
         modifier = modifier.then(Modifier.padding(top = smallSize)),
-        columns = GridCells.Adaptive(appIconSizeSmall),
+        columns = GridCells.Adaptive(appIconSize),
     ) {
         items(icons) { customIcon ->
             DrawableAppIcon(
-                size = appIconSizeSmall,
+                size = appIconSize,
                 drawable = customIcon.drawable,
                 contentDescription = stringResource(R.string.icon),
                 onClick = { onClick(customIcon) },

@@ -50,6 +50,7 @@ fun AppearanceSettingsScreen(
 
     val launchDarkThemeSettings by viewModel.launchDarkThemeSettings.collectAsState()
     val launchIconPackSettings by viewModel.launchIconPackSettings.collectAsState()
+    val launchIconsSizeSettings by viewModel.launchIconsSizeSettings.collectAsState()
     val showResetIcons by viewModel.showResetIconsDialog.collectAsState()
     val resetIconsState by viewModel.resetIconsState.collectAsState()
 
@@ -66,6 +67,11 @@ fun AppearanceSettingsScreen(
     if (launchIconPackSettings) {
         navigationComponent.goToIconPackSettings()
         viewModel.onLaunchedIconPackSettings()
+    }
+
+    if (launchIconsSizeSettings) {
+        navigationComponent.goToIconSizeSettings()
+        viewModel.onLaunchedIconsSizeSettings()
     }
 
     Scaffold(

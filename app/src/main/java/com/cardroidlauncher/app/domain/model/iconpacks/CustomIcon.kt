@@ -12,7 +12,7 @@ import android.graphics.drawable.Drawable
 data class CustomIcon(
     val drawable: Drawable,
     private val packageName: String,
-    private val drawableName: String
+    val drawableName: String
 ) {
     val iconName: String get() = getName(packageName, drawableName)
 

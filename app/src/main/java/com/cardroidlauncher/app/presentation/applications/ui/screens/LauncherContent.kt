@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import com.cardroidlauncher.app.R
 import com.cardroidlauncher.app.domain.model.applications.AppModel
+import com.cardroidlauncher.app.domain.model.settings.appearance.iconssize.IconsSize
 import com.cardroidlauncher.app.domain.model.settings.clockformat.ClockFormat
 import com.cardroidlauncher.app.domain.model.settings.general.orientation.ScreenOrientation
 import com.cardroidlauncher.app.domain.model.settings.general.steeringwheelposition.SteeringWheelPosition
@@ -39,6 +40,7 @@ fun LauncherContent(
     isVoiceSearchAvailable: Boolean,
     appsState: DataState<List<AppModel>>,
     screenOrientation: ScreenOrientation,
+    iconsSize: IconsSize,
     steeringWheelPosition: SteeringWheelPosition,
 ) {
     val config = LocalConfiguration.current
@@ -66,6 +68,7 @@ fun LauncherContent(
                 clockFormat = clockFormat,
                 isVoiceSearchAvailable = isVoiceSearchAvailable,
                 steeringWheelPosition = steeringWheelPosition,
+                iconsSize = iconsSize,
             )
         } else {
             LandscapeLauncherScreen(
@@ -74,6 +77,7 @@ fun LauncherContent(
                 clockFormat = clockFormat,
                 isVoiceSearchAvailable = isVoiceSearchAvailable,
                 steeringWheelPosition = steeringWheelPosition,
+                iconsSize = iconsSize,
             )
         }
     }
@@ -86,6 +90,7 @@ private fun PortraitLauncherScreen(
     appsState: DataState<List<AppModel>>,
     isVoiceSearchAvailable: Boolean,
     steeringWheelPosition: SteeringWheelPosition,
+    iconsSize: IconsSize,
 ) {
     Column {
         when (appsState) {
@@ -108,6 +113,7 @@ private fun PortraitLauncherScreen(
                 AppsDrawer(
                     modifier = Modifier.weight(1f),
                     apps = appsState.data,
+                    iconsSize = iconsSize,
                     onEvent = viewModel::onEvent,
                 )
             }
@@ -130,6 +136,7 @@ private fun LandscapeLauncherScreen(
     appsState: DataState<List<AppModel>>,
     isVoiceSearchAvailable: Boolean,
     steeringWheelPosition: SteeringWheelPosition,
+    iconsSize: IconsSize,
 ) {
     Row {
         if (steeringWheelPosition == SteeringWheelPosition.Left) {
@@ -163,6 +170,7 @@ private fun LandscapeLauncherScreen(
                     modifier = Modifier.weight(1f),
                     apps = appsState.data,
                     onEvent = viewModel::onEvent,
+                    iconsSize = iconsSize
                 )
             }
         }
