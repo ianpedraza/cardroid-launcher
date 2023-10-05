@@ -189,40 +189,48 @@ internal class IconPack(
 
     @SuppressLint("DiscouragedApi")
     private fun loadBitmap(drawableName: String): Bitmap? {
-        if (drawableName.isBlank()) return null
-        return iconPackResources?.let { resources ->
-            val id = resources.getIdentifier(drawableName, "drawable", packageName)
-            if (id > 0) {
-                val drawable = resources.getDrawable(id, null)
-                (drawable as? BitmapDrawable)?.bitmap
-            } else {
-                null
+        try {
+            if (drawableName.isBlank()) return null
+            return iconPackResources?.let { resources ->
+                val id = resources.getIdentifier(drawableName, "drawable", packageName)
+                if (id > 0) {
+                    val drawable = resources.getDrawable(id, null)
+                    (drawable as? BitmapDrawable)?.bitmap
+                } else {
+                    null
+                }
             }
+        } catch (e: Exception) {
+            return null
         }
     }
 
     @SuppressLint("DiscouragedApi")
     private fun loadCustomIcon(drawableName: String): CustomIcon? {
-        if (drawableName.isBlank()) return null
+        try {
+            if (drawableName.isBlank()) return null
 
-        val id = CustomIcon.getName(packageName, drawableName)
+            val id = CustomIcon.getName(packageName, drawableName)
 
-        val cachedDrawable = CustomIconsDataCache.getCached(id)
-        if (cachedDrawable != null) {
-            return cachedDrawable
-        }
-
-        return iconPackResources?.let { resources ->
-            val id = resources.getIdentifier(drawableName, "drawable", packageName)
-            if (id > 0) {
-                resources.getDrawable(id, null)?.let { drawable ->
-                    createCustomIcon(drawableName, drawable).also {
-                        CustomIconsDataCache.saveCached(it)
-                    }
-                }
-            } else {
-                null
+            val cachedDrawable = CustomIconsDataCache.getCached(id)
+            if (cachedDrawable != null) {
+                return cachedDrawable
             }
+
+            return iconPackResources?.let { resources ->
+                val id = resources.getIdentifier(drawableName, "drawable", packageName)
+                if (id > 0) {
+                    resources.getDrawable(id, null)?.let { drawable ->
+                        createCustomIcon(drawableName, drawable).also {
+                            CustomIconsDataCache.saveCached(it)
+                        }
+                    }
+                } else {
+                    null
+                }
+            }
+        } catch (e: Exception) {
+            return null
         }
     }
 

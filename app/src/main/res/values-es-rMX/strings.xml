@@ -76,7 +76,7 @@
     <string name="icons_size">Tamaño de los iconos</string>
     <string name="small">Pequeño</string>
     <string name="medium">Mediano</string>
-    <string name="large">Large</string>
+    <string name="large">Grande</string>
     <string name="search">Buscar</string>
     <string name="close">Cerrar</string>
 </resources>
